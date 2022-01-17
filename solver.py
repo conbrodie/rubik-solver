@@ -26,8 +26,6 @@ def R(v):
 def Ri(v):
     return tuple(v[i] for i in inverse([0,9,10,3,4,5,6,7,8,17,18,11,15,12,13,14,16,23,20,19,2,21,22,1]))
 
-# obtained from https://stackoverflow.com/questions/9185768/inverting-permutations-in-python
-# (SeF, 2018) [2]
 def inverse(p):
     return [p.index(i) for i in range(len(p))] 
 
@@ -100,7 +98,6 @@ def isSolved(currentConfig):
 def vaildConfiguration(currentConfig, solvedConfig):
     return currentConfig == solvedConfig
 
-# modified from graphys.py and CAB203 Tutorial 10 - obtained from CAB203 Blackboard
 def NS(u, S):
    V = { move(u) for move in {F,Fi,U,Ui,R,Ri} }
    E = { (v,u) for v in V } | { (u,v) for v in V }
@@ -108,8 +105,6 @@ def NS(u, S):
 
 def solution(problemInstance):  
     u = problemInstance
-    # obtained from https://pythoninwonderland.wordpress.com/2017/03/18/how-to-implement-breadth-first-search-in-python/
-    # (Velardo, 2021) [1]
     explored = {()}
     queue = [[u]]
     if isSolved(u):
